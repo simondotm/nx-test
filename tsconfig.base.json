@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@myorg/nodelib1": ["libs/nodelib1/src/index.ts"],
+      "@myorg/nodelib2": ["libs/nodelib2/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

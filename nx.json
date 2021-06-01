@@ -25,6 +25,12 @@
     "ngx-app-e2e": {
       "tags": [],
       "implicitDependencies": ["ngx-app"]
+    },
+    "nodelib1": {
+      "tags": []
+    },
+    "nodelib2": {
+      "tags": []
     }
   }
 }
