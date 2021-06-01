@@ -18,7 +18,7 @@
       "@myorg/nodelib1": ["libs/nodelib1/src/index.ts"],
       "@myorg/nodelib2": ["libs/nodelib2/src/index.ts"],
       "@myorg/nodelib3": ["libs/nodelib3/src/index.ts"],
-      "@myorg/nodelib3/test": ["libs/nodelib3/src/test.ts"]
+      "@myorg/nodelib3/src/*": ["libs/nodelib3/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
