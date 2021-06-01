@@ -213,6 +213,38 @@
           }
         }
       }
+    },
+    "nodelib3": {
+      "root": "libs/nodelib3",
+      "sourceRoot": "libs/nodelib3/src",
+      "projectType": "library",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/nodelib3",
+            "tsConfig": "libs/nodelib3/tsconfig.lib.json",
+            "packageJson": "libs/nodelib3/package.json",
+            "main": "libs/nodelib3/src/index.ts",
+            "assets": ["libs/nodelib3/*.md"]
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/nodelib3/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/nodelib3"],
+          "options": {
+            "jestConfig": "libs/nodelib3/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
