@@ -38,6 +38,8 @@
     "@angular/platform-browser-dynamic": "12.0.0",
     "@angular/router": "12.0.0",
     "@nrwl/angular": "12.3.5",
+    "@nrwl/node": "^12.3.5",
+    "@simondotm/nx-firebase": "^0.3.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
