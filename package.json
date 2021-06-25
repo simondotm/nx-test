@@ -40,6 +40,7 @@
     "@nrwl/angular": "12.3.5",
     "@nrwl/node": "^12.3.5",
     "@simondotm/nx-firebase": "^0.3.3",
+    "camelcase": "^6.2.0",
     "date-fns": "^2.22.1",
     "firebase-admin": "latest",
     "firebase-functions": "latest",
