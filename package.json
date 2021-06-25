@@ -39,7 +39,10 @@
     "@angular/router": "12.0.0",
     "@nrwl/angular": "12.3.5",
     "@nrwl/node": "^12.3.5",
-    "@simondotm/nx-firebase": "^0.3.2",
+    "@simondotm/nx-firebase": "^0.3.3",
+    "date-fns": "^2.22.1",
+    "firebase-admin": "latest",
+    "firebase-functions": "latest",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"

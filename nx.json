@@ -34,6 +34,9 @@
     },
     "nodelib3": {
       "tags": []
+    },
+    "firebase": {
+      "tags": []
     }
   }
 }
