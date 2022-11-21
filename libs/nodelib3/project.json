@@ -1,0 +1,33 @@
+{
+  "sourceRoot": "libs/nodelib3/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/nodelib3",
+        "tsConfig": "libs/nodelib3/tsconfig.lib.json",
+        "packageJson": "libs/nodelib3/package.json",
+        "main": "libs/nodelib3/src/index.ts",
+        "assets": ["libs/nodelib3/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/nodelib3/**/*.ts"]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/nodelib3"],
+      "options": {
+        "jestConfig": "libs/nodelib3/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,65 @@
+{
+  "sourceRoot": "apps/firebase/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@simondotm/nx-firebase:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/firebase",
+        "main": "apps/firebase/src/index.ts",
+        "tsConfig": "apps/firebase/tsconfig.app.json",
+        "packageJson": "apps/firebase/package.json",
+        "assets": ["apps/firebase/*.md", "apps/firebase/.runtimeconfig.json"]
+      }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "firebase deploy --config firebase.firebase.json"
+      }
+    },
+    "getconfig": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "firebase functions:config:get --config firebase.firebase.json > apps/firebase/.runtimeconfig.json"
+      }
+    },
+    "emulate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "firebase emulators:start --config firebase.firebase.json"
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "nx run firebase:build --with-deps && nx run firebase:build --watch"
+          },
+          {
+            "command": "nx run firebase:emulate"
+          }
+        ],
+        "parallel": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/firebase/**/*.ts"]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/firebase"],
+      "options": {
+        "jestConfig": "apps/firebase/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
