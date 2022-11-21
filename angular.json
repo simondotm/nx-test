@@ -1,13 +1,13 @@
 {
-  "version": 1,
+  "version": 2,
   "projects": {
     "firebase": {
       "root": "apps/firebase",
       "sourceRoot": "apps/firebase/src",
       "projectType": "application",
-      "architect": {
+      "targets": {
         "build": {
-          "builder": "@simondotm/nx-firebase:build",
+          "executor": "@simondotm/nx-firebase:build",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/firebase",
@@ -21,25 +21,25 @@
           }
         },
         "deploy": {
-          "builder": "nx:run-commands",
+          "executor": "nx:run-commands",
           "options": {
             "command": "firebase deploy --config firebase.firebase.json"
           }
         },
         "getconfig": {
-          "builder": "nx:run-commands",
+          "executor": "nx:run-commands",
           "options": {
             "command": "firebase functions:config:get --config firebase.firebase.json > apps/firebase/.runtimeconfig.json"
           }
         },
         "emulate": {
-          "builder": "nx:run-commands",
+          "executor": "nx:run-commands",
           "options": {
             "command": "firebase emulators:start --config firebase.firebase.json"
           }
         },
         "serve": {
-          "builder": "nx:run-commands",
+          "executor": "nx:run-commands",
           "options": {
             "commands": [
               {
@@ -53,14 +53,14 @@
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/firebase/**/*.ts"]
           },
           "outputs": ["{options.outputFile}"]
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
+          "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/firebase"],
           "options": {
             "jestConfig": "apps/firebase/jest.config.ts",
@@ -75,9 +75,9 @@
       "root": "apps/ngx-app",
       "sourceRoot": "apps/ngx-app/src",
       "prefix": "myorg",
-      "architect": {
+      "targets": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "executor": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/apps/ngx-app",
             "index": "apps/ngx-app/src/index.html",
@@ -126,7 +126,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "executor": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
               "browserTarget": "ngx-app:build:production"
@@ -138,13 +138,13 @@
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "executor": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "ngx-app:build"
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
               "apps/ngx-app/src/**/*.ts",
@@ -154,7 +154,7 @@
           "outputs": ["{options.outputFile}"]
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
+          "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/ngx-app"],
           "options": {
             "jestConfig": "apps/ngx-app/jest.config.ts",
@@ -168,9 +168,9 @@
       "root": "apps/ngx-app-e2e",
       "sourceRoot": "apps/ngx-app-e2e/src",
       "projectType": "application",
-      "architect": {
+      "targets": {
         "e2e": {
-          "builder": "@nrwl/cypress:cypress",
+          "executor": "@nrwl/cypress:cypress",
           "options": {
             "cypressConfig": "apps/ngx-app-e2e/cypress.json",
             "tsConfig": "apps/ngx-app-e2e/tsconfig.e2e.json",
@@ -183,7 +183,7 @@
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/ngx-app-e2e/**/*.{js,ts}"]
           },
@@ -197,9 +197,9 @@
       "root": "libs/nodelib1",
       "sourceRoot": "libs/nodelib1/src",
       "projectType": "library",
-      "architect": {
+      "targets": {
         "build": {
-          "builder": "@nrwl/js:tsc",
+          "executor": "@nrwl/js:tsc",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/nodelib1",
@@ -210,14 +210,14 @@
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/nodelib1/**/*.ts"]
           },
           "outputs": ["{options.outputFile}"]
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
+          "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/nodelib1"],
           "options": {
             "jestConfig": "libs/nodelib1/jest.config.ts",
@@ -231,9 +231,9 @@
       "root": "libs/nodelib2",
       "sourceRoot": "libs/nodelib2/src",
       "projectType": "library",
-      "architect": {
+      "targets": {
         "build": {
-          "builder": "@nrwl/js:tsc",
+          "executor": "@nrwl/js:tsc",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/nodelib2",
@@ -244,14 +244,14 @@
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/nodelib2/**/*.ts"]
           },
           "outputs": ["{options.outputFile}"]
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
+          "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/nodelib2"],
           "options": {
             "jestConfig": "libs/nodelib2/jest.config.ts",
@@ -265,9 +265,9 @@
       "root": "libs/nodelib3",
       "sourceRoot": "libs/nodelib3/src",
       "projectType": "library",
-      "architect": {
+      "targets": {
         "build": {
-          "builder": "@nrwl/js:tsc",
+          "executor": "@nrwl/js:tsc",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/nodelib3",
@@ -278,14 +278,14 @@
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/nodelib3/**/*.ts"]
           },
           "outputs": ["{options.outputFile}"]
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
+          "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/nodelib3"],
           "options": {
             "jestConfig": "libs/nodelib3/jest.config.ts",
