@@ -1,5 +1,6 @@
-module.exports = {
-  displayName: 'nodelib2',
+/* eslint-disable */
+export default {
+  displayName: 'nodelib1',
   preset: '../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -10,5 +11,6 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../coverage/libs/nodelib2',
+  coverageDirectory: '../../coverage/libs/nodelib1',
+  testEnvironment: 'node',
 };

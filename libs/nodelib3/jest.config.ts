@@ -1,4 +1,5 @@
-module.exports = {
+/* eslint-disable */
+export default {
   displayName: 'nodelib3',
   preset: '../../jest.preset.js',
   globals: {
@@ -11,4 +12,5 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../coverage/libs/nodelib3',
+  testEnvironment: 'node',
 };
